@@ -1,0 +1,14 @@
+ejs -> Embedded JavaScript templates
+
+What is the "E" for? "Embedded?" Could be. How about "Effective," "Elegant," or just "Easy"? EJS is a simple templating language that lets you generate HTML markup with plain JavaScript. No religiousness about how to organize things. No reinvention of iteration and control-flow. It's just plain JavaScript.
+
+
+If you give end-users unfettered access to the EJS render method, you are using EJS in an inherently un-secure way. Please do not report security issues that stem from doing that.
+
+EJS is effectively a JavaScript runtime. Its entire job is to execute JavaScript. If you run the EJS render method without checking the inputs yourself, you are responsible for the results.
+
+In short, DO NOT submit 'vulnerabilities' that include this snippet of code:
+
+app.get('/', (req, res) => {
+ res.render('index', req.query);
+});
